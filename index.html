@@ -12,11 +12,30 @@
     <link rel="stylesheet" href="https://dev.mavo.io/dist/mavo.css">
     <!-- Tachyons-CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
-    <title>Flashcard App | Mavo</title>
+    <title>Flashcard Study | Mavo</title>
 </head>
 
-<body>
+<body class="pa4">
     <h1>Flashcard Study</h1>
+    <main mv-app="FlashcardStudyApp" mv-storage="local">
+        <button mv-action="add(flashcard)">+ Add Flashcard</button>
+        <article property="flashcard" mv-multiple mv-initial-items="0">
+            <meta property="mode" mv-default="write">
+            <button mv-action="delete(flashcard)">Delete</button>
+            <h2>Word | Phrase</h2>
+            <textarea cols="30" rows="10" property="word"></textarea>
+            <p>[word]</p>
+            <h2>Translation</h2>
+            <textarea cols="30" rows="10" property="translation"></textarea>
+            <p>[translation]</p>
+            <section>
+                <button mv-if="mode = write">Save</button>
+                <button>Bad</button>
+                <button>Good</button>
+                <button>Great</button>
+            </section>
+        </article>
+    </main>
 </body>
 
 </html>
