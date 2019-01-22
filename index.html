@@ -20,19 +20,19 @@
     <main mv-app="FlashcardStudyApp" mv-storage="local">
         <button mv-action="add(flashcard)">+ Add Flashcard</button>
         <article property="flashcard" mv-multiple mv-initial-items="0">
-            <meta property="mode" mv-default="write">
+            <span hidden property="mode" mv-default="write"></span>
             <button mv-action="delete(flashcard)">Delete</button>
             <h2>Word | Phrase</h2>
-            <textarea cols="30" rows="10" property="word"></textarea>
-            <p>[word]</p>
+            <textarea cols="30" rows="10" property="word" mv-if="mode = write"></textarea>
+            <p mv-if="mode = read" mv-action="set(mode, write)">[word]</p>
             <h2>Translation</h2>
-            <textarea cols="30" rows="10" property="translation"></textarea>
-            <p>[translation]</p>
+            <textarea cols="30" rows="10" property="translation" mv-if="mode = write"></textarea>
+            <p mv-if="mode = read">[translation]</p>
             <section>
-                <button mv-if="mode = write">Save</button>
-                <button>Bad</button>
-                <button>Good</button>
-                <button>Great</button>
+                <button mv-if="mode = write" mv-action="set(mode, read)">Save</button>
+                <button mv-if="mode = read">Bad</button>
+                <button mv-if="mode = read">Good</button>
+                <button mv-if="mode = read">Great</button>
             </section>
         </article>
     </main>
