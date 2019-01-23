@@ -12,47 +12,76 @@
     <link rel="stylesheet" href="https://dev.mavo.io/dist/mavo.css">
     <!-- Tachyons-CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <title>Flashcard Study | Mavo</title>
 </head>
 
-<body class="pa4">
-    <h1>Flashcard Study</h1>
+<body class="avenir pa4 f3 mw8 center">
+    <h1 class="f2 pv2 bb dark-blue b--dark-blue">Flashcard Study</h1>
     <main mv-app="FlashcardStudyApp" mv-storage="local" mv-bar="import export">
-        <button mv-action="add(flashcard)">+ Add Flashcard</button>
-        <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc">
-            <div hidden property="mode" mv-default="edit"></div>
-            <div hidden property="translationVisible" mv-default="false"></div>
-            <div hidden property="rank" mv-default="0"></div>
-            <button mv-action="delete(flashcard)">Delete</button>
-            <h2>Word</h2>
-            <textarea cols="30" rows="10" property="word" mv-if="mode = edit"></textarea>
-            <p mv-if="mode = read" mv-action="set(mode, edit)">[word]</p>
-            <button mv-if="mode = read and !translationVisible"
-                mv-action="set(translationVisible, true)">
-                Show Translation
-            </button>
-            <h2 mv-if="mode = edit or translationVisible">Translation</h2>
-            <textarea cols="30" rows="10" property="translation" mv-if="mode = edit" lang="fr"></textarea>
-            <p mv-if="mode = read  and translationVisible" mv-action="set(mode, edit)">[translation]</p>
-            <section>
-                <button mv-if="mode = edit" mv-action="set(mode, read), set(translationVisible, false)">Save</button>
-                <button mv-if="mode = read and translationVisible"
-                    mv-action="set(rank, 0), set(translationVisible, false)">
-                    Bad
+        <button mv-action="add(flashcard)" class="pa2 br1 mv2 bg-green bn white">
+            <i class="fa fa-plus ph1"></i>Add Flashcard
+        </button>
+        <section class="flex flex-wrap justify-center">
+            <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc"
+                        class="w-30 pa2 bg-light-yellow shadow-1 ma2 relative">
+                <div hidden property="mode" mv-default="edit"></div>
+                <div hidden property="translationVisible" mv-default="false"></div>
+                <div hidden property="rank" mv-default="0"></div>
+                <button mv-action="delete(flashcard)" class="absolute top-0 right-0 bn bg-light-yellow">
+                    <i class="fa fa-remove fa-fw black-50 pointer"></i>
                 </button>
-                <button mv-if="mode = read and translationVisible"
-                    mv-action="set(rank, rank + 1), set(translationVisible, false)">
-                    Good
+                <h2 class="f6 mv1">Word</h2>
+                <textarea property="word" mv-if="mode = edit"
+                    class="w-100 bg-washed-yellow outline-0"></textarea>
+                <p mv-if="mode = read" mv-action="set(mode, edit)"
+                    class="pointer hover-bg-black-10 bg-animate pv2 ph1" style="overflow-wrap: break-word;">
+                    [word]
+                </p>
+                <button mv-if="mode = read and !translationVisible"
+                    mv-action="set(translationVisible, true)"
+                    class="f6 ph3 pv2 br1 bg-gray bn white mv2">
+                    Show Translation
                 </button>
-                <button mv-if="mode = read and translationVisible"
-                    mv-action="set(rank, rank + 2), set(translationVisible, false)">
-                    Great
+                <h2 mv-if="mode = edit or translationVisible" class="f6 mv1">Translation</h2>
+                <textarea property="translation" mv-if="mode = edit" lang="fr"
+                    class="w-100 bg-washed-yellow outline-0"></textarea>
+                <p mv-if="mode = read  and translationVisible" mv-action="set(mode, edit)"
+                    class="pointer hover-bg-black-10 bg-animate pv2 ph1" style="overflow-wrap: break-word;">
+                    [translation]
+                </p>
+                <section class="mv2 flex justify-between">
+                <button mv-if="mode = edit" mv-action="set(mode, read), set(translationVisible, false)"
+                    class="f4 ph3 pv2 br1 bg-gray bn white mv2">
+                    Save
                 </button>
-            </section>
-        </article>
+                    <button mv-if="mode = read and translationVisible"
+                        mv-action="set(rank, 0), set(translationVisible, false)"
+                        class="f4 ph3 pv2 bg-red bn white br1">
+                        Bad
+                    </button>
+                    <button mv-if="mode = read and translationVisible"
+                        mv-action="set(rank, rank + 1), set(translationVisible, false)"
+                        class="f4 ph3 pv2 bg-blue bn white br1">
+                        Good
+                    </button>
+                    <button mv-if="mode = read and translationVisible"
+                        mv-action="set(rank, rank + 2), set(translationVisible, false)"
+                        class="f4 ph3 pv2 bg-dark-green bn white br1">
+                        Great
+                    </button>
+                </section>
+            </article>
+        </section>
         <section class="mv-bar">
-            <button class="mv-export">⬇︎ Save Flashcards</button>
-            <button class="mv-import">⬆︎ Load Flashcards</button>
+            <button mv-if="count(flashcard) > 0"
+                    class="mv-export f5 pa2 br1 mv2 mr2 bg-dark-blue bn white">
+                <i class="fa fa-download ph1"></i>Save Flashcards
+            </button>
+            <button class="mv-import f5 pa2 br1 mv2 bg-dark-blue bn white">
+                <i class="fa fa-upload ph1"></i>Load Flashcards
+            </button>
         </section>
     </main>
 </body>
