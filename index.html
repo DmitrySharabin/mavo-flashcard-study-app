@@ -19,7 +19,7 @@
     <h1>Flashcard Study</h1>
     <main mv-app="FlashcardStudyApp" mv-storage="local">
         <button mv-action="add(flashcard)">+ Add Flashcard</button>
-        <article property="flashcard" mv-multiple mv-initial-items="0">
+        <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc">
             <div hidden property="mode" mv-default="edit"></div>
             <div hidden property="translationVisible" mv-default="false"></div>
             <div hidden property="rank" mv-default="0"></div>
