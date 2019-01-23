@@ -17,7 +17,7 @@
 
 <body class="pa4">
     <h1>Flashcard Study</h1>
-    <main mv-app="FlashcardStudyApp" mv-storage="local">
+    <main mv-app="FlashcardStudyApp" mv-storage="local" mv-bar="import export">
         <button mv-action="add(flashcard)">+ Add Flashcard</button>
         <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc">
             <div hidden property="mode" mv-default="edit"></div>
@@ -50,6 +50,10 @@
                 </button>
             </section>
         </article>
+        <section class="mv-bar">
+            <button class="mv-export">⬇︎ Save Flashcards</button>
+            <button class="mv-import">⬆︎ Load Flashcards</button>
+        </section>
     </main>
 </body>
 
