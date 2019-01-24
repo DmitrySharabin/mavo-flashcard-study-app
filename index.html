@@ -29,16 +29,21 @@
                 <meta property="mode" content="edit" mv-default="edit">
                 <meta property="translationVisible" content="false" mv-default="false">
                 <meta property="rank" content="0" mv-default="0">
+                <meta property="specialCharacters" mv-default="à â ä ç è é ê ë î ï ô ù û ü œ ">
                 <button mv-action="delete(flashcard)">
                     <i class="fa fa-remove"></i>
                 </button>
                 <h2>Word</h2>
                 <textarea property="word" mv-if="mode = edit"></textarea>
+                <details mv-if="mode = edit">
+                    <summary>Special Characters</summary>
+                    <span property="character" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters)"           mv-action="set(word, word & character)"></span>
+                </details>
                 <p mv-if="mode = read" mv-action="set(mode, edit)">
                     [word]
                 </p>
                 <button mv-if="mode = read and !translationVisible"
-                    mv-action="set(translationVisible, true)">
+                        mv-action="set(translationVisible, true)">
                     Show Translation
                 </button>
                 <h2 mv-if="mode = edit or translationVisible">Translation</h2>
