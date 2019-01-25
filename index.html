@@ -39,7 +39,7 @@
                 <textarea property="word" mv-if="mode = edit"></textarea>
                 <details mv-if="mode = edit">
                     <summary>Special Characters</summary>
-                    <span property="character" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters)"           mv-action="set(word, word & character)"></span>
+                    <span property="character" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters)"           mv-action="set(word, word & character)" title="[character]" tabindex="0"></span>
                 </details>
                 <p mv-if="mode = read" mv-action="set(mode, edit)">
                     [word]
