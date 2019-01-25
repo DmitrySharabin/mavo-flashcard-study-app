@@ -209,8 +209,12 @@ meta[property][mv-mode="edit"]{
 }
 
 /* Style footer */
-footer * {
+footer {
     margin-top: 5rem;
+}
+
+footer * {
+    margin: 0.2rem;
     font-weight: 400;
     font-size: 1.1rem;
     color: var(--dark-blue);
