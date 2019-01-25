@@ -53,7 +53,6 @@ header h1 {
 
 /* Style flashcard */
 [property="flashcard"] {
-    position: relative;
     max-width: 350px;
     width: 100%;
     padding: 1rem 0.6rem;
@@ -129,8 +128,8 @@ header h1 {
     font-size: 1.3rem;
 }
 
-/* Style buttons with icons, but not delete button */
-.fa:not([class$="remove"]) {
+/* Style buttons with icons */
+.fa {
     padding-right: 0.5rem;
 }
 
@@ -138,20 +137,6 @@ header h1 {
 [mv-app="FlashcardStudyApp"] > button {
     margin: 0 0 1rem 0;
     background-color: var(--green);
-}
-
-/* Style delete button */
-[property="flashcard"] > button:first-of-type {
-    background-color: transparent;
-    border: none;
-    color: hsla(0, 0%, 0%, 0.5);
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 0.3rem 0.5rem;
-    cursor: pointer;
 }
 
 /* Style Show Translation button */
@@ -164,7 +149,6 @@ header h1 {
 }
 
 /* Style section with buttons (translation is visible) */
-
 [property="flashcard"] > section:last-of-type {
     margin-top: 0.5rem;
     display: grid;
@@ -210,4 +194,9 @@ header h1 {
     border-radius: 0.2rem;
     background-color: var(--dark-blue);
     color: white;
+}
+
+/* Hide meta properties */
+meta[property][mv-mode="edit"]{
+    display: none;
 }
