@@ -1,0 +1,217 @@
+/* Basic Styling */
+html {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 360px;
+    max-width: 1100px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    font-weight: 300;
+}
+
+/*
+    Color scheme: http://tachyons.io/
+*/
+:root {
+    --red: hsl(3, 100%, 61%);
+    --green: hsl(158, 74%, 38%);
+    --dark-green: hsl(158, 72%, 27%);
+    --dark-blue: hsl(214, 100%, 31%);
+    --blue: hsl(214, 71%, 54%);
+    --light-yellow: hsl(53, 91%, 82%);
+    --washed-yellow: hsl(51, 100%, 96%);
+    --gray: hsl(0, 0%, 47%);
+}
+
+header h1 {
+    padding-bottom: 0.4rem;
+    color: var(--dark-blue);
+    font-weight: 600;
+    font-size: 2rem;
+    border-bottom: 3px solid var(--dark-blue);
+}
+
+/* Style area with flashcards */
+[mv-app="FlashcardStudyApp"] > section:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    grid-gap: 1rem;
+    justify-items: center;
+}
+
+/* Style flashcard */
+[property="flashcard"] {
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+    padding: 1rem 0.6rem;
+    background-color: var(--light-yellow);
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+[property="flashcard"] h2 {
+    margin: 0 0 0.3rem;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: default;
+}
+
+[property="flashcard"] > textarea {
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: 8rem;
+    background-color: var(--washed-yellow);
+    font-size: 1.8rem;
+}
+
+/* Style section with special characters */
+[property="flashcard"] > details {
+    margin: 0.3rem 0 0.7rem 0;
+    overflow-wrap: break-word;
+    font-size: 1.1rem;
+    text-align: center;
+    cursor: default;
+}
+
+[property="flashcard"] > details summary {
+    text-align: left;
+}
+
+/* Style special characters */
+[property="flashcard"] > details span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0.2rem;
+    padding: 0.1rem;
+    font-weight: 500;
+    border-radius: 0.2rem;
+    background-color: var(--washed-yellow);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+[property="flashcard"] p {
+    margin: 0 0 0.5rem;
+    padding: 0.5rem 0.2rem;
+    font-size: 1.8rem;
+    overflow-wrap: break-word;
+    cursor: pointer;
+    transition: background-color .15s ease-in-out;
+}
+
+[property="flashcard"] p:hover {
+    background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+/* Default styles of all buttons */
+[property="flashcard"] button, [mv-app="FlashcardStudyApp"] > button {
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    background-color: var(--dark-blue);
+    color: white;
+    font-size: 1.3rem;
+}
+
+/* Style buttons with icons, but not delete button */
+.fa:not([class$="remove"]) {
+    padding-right: 0.5rem;
+}
+
+/* Style Add Flashcard button */
+[mv-app="FlashcardStudyApp"] > button {
+    margin: 0 0 1rem 0;
+    background-color: var(--green);
+}
+
+/* Style delete button */
+[property="flashcard"] > button:first-of-type {
+    background-color: transparent;
+    border: none;
+    color: hsla(0, 0%, 0%, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+}
+
+/* Style Show Translation button */
+[property="flashcard"] .show-translation {
+    background-color: transparent;
+    color: initial;
+    font-style: italic;
+    font-size: 1.1rem;
+    transition: transform .15s ease-in-out;
+}
+
+[property="flashcard"] .show-translation:hover {
+    transform: scale(1.1);
+}
+
+/* Style section with buttons (translation is visible) */
+
+[property="flashcard"] > section:last-of-type {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+[property="flashcard"] > section:last-of-type button {
+    margin: 0.3rem 0;
+    width: 4rem;
+    text-align: center;
+}
+
+/* Button "Bad" */
+[property="flashcard"] > section:last-of-type button:nth-child(1):not(:only-child) {
+    background-color: var(--red);
+}
+
+/* Button "Good" */
+[property="flashcard"] > section:last-of-type button:nth-child(2) {
+    background-color: var(--blue);
+    justify-self: center;
+}
+
+/* Button "Great" */
+[property="flashcard"] > section:last-of-type button:nth-child(3) {
+    background-color: var(--dark-green);
+    justify-self: end;
+}
+
+/* Style Mavo bar */
+.mv-bar {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-gap: 1rem;
+    margin: 1rem 0;
+}
+
+.mv-bar button {
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    background-color: var(--dark-blue);
+    color: white;
+}
