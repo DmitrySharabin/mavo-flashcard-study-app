@@ -121,6 +121,7 @@ header h1 {
 
 /* Default styles of all buttons */
 [property="flashcard"] button, [mv-app="FlashcardStudyApp"] > button {
+    margin: 1rem 0 0;
     padding: 0.5rem;
     border-radius: 0.2rem;
     border: none;
@@ -164,7 +165,7 @@ header h1 {
 }
 
 /* Button "Bad" */
-[property="flashcard"] > section:last-of-type button:nth-child(1):not(:only-child) {
+[property="flashcard"] > section:last-of-type button:nth-child(1) {
     background-color: var(--red);
 }
 
