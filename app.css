@@ -207,3 +207,11 @@ header h1 {
 meta[property][mv-mode="edit"]{
     display: none;
 }
+
+/* Style footer */
+footer * {
+    margin-top: 5rem;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--dark-blue);
+}
