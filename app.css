@@ -125,9 +125,14 @@ header h1 {
     padding: 0.5rem;
     border-radius: 0.2rem;
     border: none;
-    background-color: var(--gray);
+    background-color: var(--dark-green);
     color: white;
     font-size: 1.3rem;
+}
+
+/* Style Save button */
+[property="flashcard"] > button:last-of-type:disabled {
+    background-color: var(--gray);
 }
 
 /* Style buttons with icons */
