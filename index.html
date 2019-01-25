@@ -22,12 +22,12 @@
         <h1>Flashcard Study</h1>
     </header>
 
-    <main mv-app="FlashcardStudyApp" mv-storage="local" mv-mode="edit">
+    <main mv-app="FlashcardStudyApp" mv-storage="local">
         <button title="Add flashcard" class="mv-add-flashcard">
             <i class="fa fa-plus"></i>Add Flashcard
         </button>
         <section>
-            <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc">
+            <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc" mv-mode="edit">
                 <meta property="mode" mv-default="edit">
                 <meta property="translationVisible" mv-default="false">
                 <meta property="rank" mv-default="0">
