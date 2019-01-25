@@ -23,37 +23,49 @@
     </header>
 
     <main mv-app="FlashcardStudyApp" mv-storage="local">
+
         <meta property="specialCharacters" mv-default="à â ä ç è é ê ë î ï ô ù û ü œ ">
+
         <button title="Add flashcard" class="mv-add-flashcard">
             <i class="fa fa-plus"></i>Add Flashcard
         </button>
+
         <section>
             <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc" mv-mode="edit">
+
                 <meta property="mode" mv-default="edit">
                 <meta property="translationVisible" mv-default="false">
                 <meta property="rank" mv-default="0">
+
                 <h2>Word, phrase, or sentence</h2>
                 <textarea property="source" mv-if="mode = edit"></textarea>
+
                 <details mv-if="mode = edit">
                     <summary>Special Characters</summary>
                     <span property="character" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters)"           mv-action="set(word, word & character)" title="[character]" tabindex="0"></span>
                 </details>
+
                 <p mv-if="mode = read" mv-action="set(mode, edit)">
                     [source]
                 </p>
+
                 <button mv-if="mode = read and !translationVisible"
                         mv-action="set(translationVisible, true)"
                         class="show-translation">
                     <i class="fa fa-eye"></i>Show Translation
                 </button>
+
                 <h2 mv-if="mode = edit or translationVisible">Translation</h2>
                 <textarea property="translation" mv-if="mode = edit" lang="fr"></textarea>
+
                 <p mv-if="mode = read  and translationVisible" mv-action="set(mode, edit)">
                     [translation]
                 </p>
+
                 <button mv-if="mode = edit" mv-action="set(mode, read), set(translationVisible, false)">
                     Save
                 </button>
+
                 <section mv-if="mode = read and translationVisible">
                     <button mv-action="set(rank, 0), set(translationVisible, false)">
                         Bad
@@ -65,8 +77,10 @@
                         Great
                     </button>
                 </section>
+
             </article>
         </section>
+
         <section class="mv-bar" mv-bar="import export no-save no-edit">
             <button class="mv-import" title="Load flashcards from file">
                 <i class="fa fa-upload"></i>Import
