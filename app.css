@@ -12,6 +12,7 @@ body {
     width: 100%;
     min-width: 360px;
     max-width: 1100px;
+    color: hsl(0, 0%, 20%);
 }
 
 *,
@@ -123,7 +124,7 @@ header h1 {
     padding: 0.5rem;
     border-radius: 0.2rem;
     border: none;
-    background-color: var(--dark-blue);
+    background-color: var(--gray);
     color: white;
     font-size: 1.3rem;
 }
