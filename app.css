@@ -160,11 +160,7 @@ header h1 {
     color: initial;
     font-style: italic;
     font-size: 1.1rem;
-    transition: transform .15s ease-in-out;
-}
-
-[property="flashcard"] .show-translation:hover {
-    transform: scale(1.1);
+    cursor: pointer;
 }
 
 /* Style section with buttons (translation is visible) */

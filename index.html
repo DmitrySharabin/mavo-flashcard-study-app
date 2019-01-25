@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://dev.mavo.io/dist/mavo.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="./app.css">
     <title>Flashcard Study | Mavo</title>
 </head>
 
@@ -22,7 +24,7 @@
 
     <main mv-app="FlashcardStudyApp" mv-storage="local" mv-bar="import export">
         <button mv-action="add(flashcard)" title="Add flashcard">
-            <i class="fa fa-plus"></i>Add
+            <i class="fa fa-plus"></i>Add Flashcard
         </button>
         <section>
             <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc">
@@ -43,8 +45,9 @@
                     [word]
                 </p>
                 <button mv-if="mode = read and !translationVisible"
-                        mv-action="set(translationVisible, true)">
-                    Show Translation
+                        mv-action="set(translationVisible, true)"
+                        class="show-translation">
+                    <i class="fa fa-eye"></i>Show Translation
                 </button>
                 <h2 mv-if="mode = edit or translationVisible">Translation</h2>
                 <textarea property="translation" mv-if="mode = edit" lang="fr"></textarea>
@@ -71,7 +74,7 @@
             </article>
         </section>
         <section class="mv-bar">
-            <button mv-if="count(flashcard) > 0" class="mv-export" title="Save flashcards to file">
+            <button class="mv-export" title="Save flashcards to file">
                 <i class="fa fa-download"></i>Export
             </button>
             <button class="mv-import" title="Load flashcards from file">
