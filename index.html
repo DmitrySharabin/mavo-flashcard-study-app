@@ -33,13 +33,13 @@
                 <meta property="translationVisible" mv-default="false">
                 <meta property="rank" mv-default="0">
                 <h2>Word, phrase, or sentence</h2>
-                <textarea property="word" mv-if="mode = edit"></textarea>
+                <textarea property="source" mv-if="mode = edit"></textarea>
                 <details mv-if="mode = edit">
                     <summary>Special Characters</summary>
                     <span property="character" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters)"           mv-action="set(word, word & character)" title="[character]" tabindex="0"></span>
                 </details>
                 <p mv-if="mode = read" mv-action="set(mode, edit)">
-                    [word]
+                    [source]
                 </p>
                 <button mv-if="mode = read and !translationVisible"
                         mv-action="set(translationVisible, true)"
