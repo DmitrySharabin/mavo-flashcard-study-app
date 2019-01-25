@@ -23,6 +23,7 @@
     </header>
 
     <main mv-app="FlashcardStudyApp" mv-storage="local">
+        <meta property="specialCharacters" mv-default="à â ä ç è é ê ë î ï ô ù û ü œ ">
         <button title="Add flashcard" class="mv-add-flashcard">
             <i class="fa fa-plus"></i>Add Flashcard
         </button>
@@ -31,7 +32,6 @@
                 <meta property="mode" mv-default="edit">
                 <meta property="translationVisible" mv-default="false">
                 <meta property="rank" mv-default="0">
-                <meta property="specialCharacters" mv-default="à â ä ç è é ê ë î ï ô ù û ü œ ">
                 <h2>Word, phrase, or sentence</h2>
                 <textarea property="word" mv-if="mode = edit"></textarea>
                 <details mv-if="mode = edit">
@@ -70,7 +70,7 @@
                 </section>
             </article>
         </section>
-        <section class="mv-bar" mv-bar="import export no-save">
+        <section class="mv-bar" mv-bar="import export no-save no-edit">
             <button class="mv-import" title="Load flashcards from file">
                 <i class="fa fa-upload"></i>Import
             </button>
