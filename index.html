@@ -31,7 +31,7 @@
         </button>
 
         <section>
-            <article property="flashcard" mv-multiple mv-initial-items="0" mv-order="desc" mv-mode="edit">
+            <article property="flashcard" mv-multiple mv-initial-items="0" mv-mode="edit">
 
                 <meta property="mode" mv-default="edit">
                 <meta property="translationVisible" mv-default="false">
@@ -79,7 +79,7 @@
                     <button mv-action="set(rank, rank + 1), set(translationVisible, false)">
                         Good
                     </button>
-                    <button mv-action="set(rank, rank + 2), set(translationVisible, false)">
+                    <button mv-action="set(rank, rank + 2), set(translationVisible, false), move(flashcard, count($all))">
                         Great
                     </button>
                 </section>
