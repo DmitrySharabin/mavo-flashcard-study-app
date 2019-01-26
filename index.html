@@ -35,7 +35,10 @@
 
                 <meta property="mode" mv-default="edit">
                 <meta property="translationVisible" mv-default="false">
-                <meta property="rank" mv-default="0">
+
+                <aside title="Rank">
+                    <span property="rank" mv-default="0" mv-mode="[mode]"></span>
+                </aside>
 
                 <h2>Word, phrase, or sentence</h2>
                 <textarea property="source" mv-if="mode = edit"></textarea>
