@@ -1,17 +1,16 @@
 {
-	"specialCharacters": "à â ä ç è é ê ë î ï ô ù û ü œ ",
 	"flashcard": [
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": 1,
+			"rank": 0,
 			"source": "Noël",
 			"translation": "Christmas"
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": 2,
+			"rank": 0,
 			"source": "Musée",
 			"translation": "Museum"
 		},
@@ -25,14 +24,14 @@
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": "0",
+			"rank": 0,
 			"source": "Théâtre",
 			"translation": "Theatre"
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": "0",
+			"rank": 0,
 			"source": "École",
 			"translation": "School"
 		}
