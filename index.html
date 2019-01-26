@@ -68,7 +68,7 @@
 
                 <button mv-if="mode = edit"
                         mv-action="set(mode, read), set(translationVisible, false)"
-                        disabled="[len(source) = 0 or len(translation) = 0]">
+                        disabled="[len(source) = 0 or len(translation) = 0 or len(rank) = 0]">
                     Save
                 </button>
 
