@@ -26,7 +26,7 @@
 
 -  Ability to self grade your own translation.
 
-![Self Grade Translation|353x259, 50%](./images/4.png)
+![Self Grade Translation|361x269, 50%](./images/4.png)
 
 -  Move Flashcards by answer ranking:
    **Bad** Answer → Rank = 0 (the card moves at the beginning),
