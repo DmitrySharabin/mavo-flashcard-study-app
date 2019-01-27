@@ -3,35 +3,35 @@
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": 0,
+			"rank": "0",
 			"source": "Noël",
 			"translation": "Christmas"
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": 0,
+			"rank": "0",
 			"source": "Musée",
 			"translation": "Museum"
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": 0,
+			"rank": "0",
 			"source": "Monument",
 			"translation": "Monument"
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": 0,
+			"rank": "0",
 			"source": "Théâtre",
 			"translation": "Theatre"
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
-			"rank": 0,
+			"rank": "0",
 			"source": "École",
 			"translation": "School"
 		}
