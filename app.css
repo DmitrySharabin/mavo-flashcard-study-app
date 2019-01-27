@@ -178,6 +178,7 @@ header h1 {
 [mv-app="FlashcardStudyApp"] > button {
     margin: 0 0 1rem 0;
     background-color: var(--green);
+    cursor: pointer;
 }
 
 /* Style Show Translation button */
@@ -235,6 +236,7 @@ header h1 {
     border-radius: 0.2rem;
     background-color: var(--dark-blue);
     color: white;
+    cursor: pointer;
 }
 
 /* Hide meta properties */
