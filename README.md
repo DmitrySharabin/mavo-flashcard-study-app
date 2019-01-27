@@ -1,6 +1,6 @@
 # Mavo Flashcard Study App
 
-![Flashcard Study App|1092x680, 50%](./images/1.png)
+![Flashcard Study App|1080x688, 50%](./images/1.png)
 
 ## Features
 
@@ -16,9 +16,10 @@
 
 ![Delete and Rearrange Flashcards|103x31, 100%](./images/5.png)
 
+- Delete all Flashcards.
 - Import and Export Flashcards.
 
-![Import and Export Flashcards|196x45, 100%](./images/6.png)
+![Import and Export Flashcards, Delete all Flashcards|286x48, 100%](./images/6.png)
 
 - Translation shown when requested.
 
