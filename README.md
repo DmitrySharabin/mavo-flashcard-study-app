@@ -32,3 +32,7 @@
    **Bad** Answer → Rank = 0 (the card moves at the beginning),
    **Good** Answer → Rank = Rank + 1 (the card doesn't move),
    **Great** Answer → Rank = Rank + 2 (the card moves at the end).
+
+## License
+
+The content of this repository is licensed under a [MIT License](https://opensource.org/licenses/MIT).
