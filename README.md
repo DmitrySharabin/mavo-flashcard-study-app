@@ -6,7 +6,7 @@
 
 - Create new Flashcards.
 - Edit Flashcard source phrases and translations.
-- Add special characters when needed.
+- Special characters added when needed.
 - Rank edited when needed.
 
 ![Edit Flashcard|361x702, 50%](./images/2.png)
