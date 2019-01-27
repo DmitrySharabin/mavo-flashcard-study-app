@@ -1,0 +1,110 @@
+{
+	"specialCharacters": "à â ä ç è é ê ë î ï ô ù û ü œ ",
+	"flashcard": [
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Un homme digne de foi",
+			"translation": "Заслуживающий доверия, достойный человек\n(ex. Laverdon, qui est pourtant un homme digne de foi, m’a affirmé qu’il avait vécu trente-cinq jours en ce seul mois de mai.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "En tas",
+			"translation": "В кучу, кучей\n(ex. Nous avons vu soudain ses vêtements tomber en tas sur le tapis.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Paradisiaque",
+			"translation": "Райский\n(ex. Une île paradisiaque.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Dépit (f)",
+			"translation": "Досада\n(ex. L’idée que le monde a pu vivre sans moi m’a causé et me cause encore quelque dépit.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "À part entière",
+			"translation": "Полноправный\n(ex. Cet emploi leur permette d'être classés dans la catégorie des vivants à part entière.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Sincérité (f)",
+			"translation": "Искренность, откровенность\n(ex. La sincérité du témoin ne peut être suspectée.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Hypocrisie (f)",
+			"translation": "Лицемерие, фальшь\n(ex. Assez d'hypocrisie, jouons cartes sur table.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Ignoble",
+			"translation": "Подлый, гнусный, неблагородный\n(ex. Perruque a été ignoble de suffisance, d’hypocrisie et de méchanceté.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Non-être (m)",
+			"translation": "Небытие\n(ex. Il sombrera dans le non-être et y demeurera vingt-cinq jours.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Négliger de f. qqch",
+			"translation": "Игнорировать, забывать\n(ex. Ma concierge, elle a négligé de m’apporter mon courrier.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Copieux",
+			"translation": "Обильный, сытный, плотный\n(ex. Repas copieux.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Vengeance (f)",
+			"translation": "Месть, возмездие\n(ex. Dans un esprit de vengeance je fais chaque jour deux très copieux repas au marché noir.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "À peine",
+			"translation": "Едва, чуть, с трудом\n(ex. On remarque à peine son accent.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "En toute modestie",
+			"translation": "Скромно\n(ex. Dire en toute modestie.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": 0,
+			"source": "Adroitement",
+			"translation": "Ловко, искусно, умело\n(ex. Je l'ai cuisiné adroitement.)"
+		}
+	]
+}
