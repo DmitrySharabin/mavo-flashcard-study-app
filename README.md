@@ -4,16 +4,31 @@
 
 ## Features
 
-1. Create new Flashcards
-2. Edit Flashcard source phrases and translations
-3. Add special characters when needed
-4. Delete Flashcards
-5. Rearrange Flashcards
-6. Import and Export Flashcards
-7. Translation shown when requested
-8. Rank edited when needed
-9. Ability to self grade your own translation
-10. Move Flashcards by answer ranking:
-   **Bad** Answer → Rank = 0 (the card moves at the beginning)
-   **Good** Answer → Rank = Rank + 1 (the card doesn't move)
-   **Great** Answer → Rank = Rank + 2 (the card moves at the end)
+- Create new Flashcards.
+- Edit Flashcard source phrases and translations.
+- Add special characters when needed.
+- Rank edited when needed.
+
+![Edit Flashcard|361x702, 50%](./images/2.png)
+
+- Delete Flashcards.
+- Rearrange Flashcards.
+
+![Delete and Rearrange Flashcards|103x31, 100%](./images/5.png)
+
+- Import and Export Flashcards.
+
+![Import and Export Flashcards|196x45, 100%](./images/6.png)
+
+- Translation shown when requested.
+
+![Request Translation|355x190, 50%](./images/3.png)
+
+-  Ability to self grade your own translation.
+
+![Self Grade Translation|353x259, 50%](./images/4.png)
+
+-  Move Flashcards by answer ranking:
+   **Bad** Answer → Rank = 0 (the card moves at the beginning),
+   **Good** Answer → Rank = Rank + 1 (the card doesn't move),
+   **Great** Answer → Rank = Rank + 2 (the card moves at the end).
