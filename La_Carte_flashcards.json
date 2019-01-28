@@ -4,6 +4,111 @@
 		{
 			"mode": "read",
 			"translationVisible": false,
+			"rank": "0",
+			"source": "Réclamer",
+			"translation": "Настойчиво просить, требовать (les employés réclament des salaires plus élevés)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Quasiment",
+			"translation": "Практически (L’eau s’ecoule quasiment sans bruit)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "À l’égard de",
+			"translation": "к, по отношению к (Pourquoi le gouvernement a-t-il été si indifférent à l’égard de ceux qui ont perdu leur emploi?)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Se faire part de",
+			"translation": "Делиться, сообщать (Il est toujours possible de faire part de ses inquiétudes au médecin)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Stupéfaction (f)",
+			"translation": "Изумление, ошеломление (causer une profonde stupéfaction)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Réconforter",
+			"translation": "Подбодрить, утешать (j’essaie de réconforter mon ami)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Verser",
+			"translation": "Лить, проливать (verser le sirop dans les pots; verser les larmes) "
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Déroulement (m)",
+			"translation": "Ход, протекание, развитие событий (le déroulement du temps)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Se flatter de qch",
+			"translation": "Кичиться чем-либо (nombre de personnes se flattent d’avoir plus de possibilités)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Subir",
+			"translation": "Переносить, испытывать (subir une opération; subir des pressions)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Navré(e)",
+			"translation": "Огорченный, сожалеющий (Elle paraissait navrée de mon scepticisme. Je suis vraiment navré, qu’ils ne soient pas ici.)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Être avare de",
+			"translation": "Быть скупым на... (il est avare de bonnes paroles)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "S’épancher",
+			"translation": "Изливать душу (j’avais besoin de m’épancher; проливаться "
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Entrer en vigueur",
+			"translation": "Вступать в силу (Le présent contrat entre en vigueur au moment de sa signature par les parties)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
+			"rank": "0",
+			"source": "Consentir à",
+			"translation": "Давать согласие на ч-л (elle consent à me voir jeudi)"
+		},
+		{
+			"mode": "read",
+			"translationVisible": false,
 			"rank": 0,
 			"source": "Un homme digne de foi",
 			"translation": "Заслуживающий доверия, достойный человек\n(ex. Laverdon, qui est pourtant un homme digne de foi, m’a affirmé qu’il avait vécu trente-cinq jours en ce seul mois de mai.)"
