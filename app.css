@@ -168,6 +168,7 @@ header h1 {
     background-color: var(--dark-green);
     color: white;
     font-size: 1.3rem;
+    transition: opacity .15s ease-in-out;
 }
 
 /* Style Save button */
@@ -185,6 +186,10 @@ header h1 {
     margin: 0 0 1rem 0;
     background-color: var(--green);
     cursor: pointer;
+}
+
+[mv-app="FlashcardStudyApp"] > button:hover {
+    opacity: 0.7;
 }
 
 /* Style Show Translation button */
@@ -208,6 +213,11 @@ header h1 {
     margin: 0.3rem 0;
     width: 4rem;
     text-align: center;
+    cursor: pointer;
+}
+
+[property="flashcard"] > section:last-of-type button:hover {
+    opacity: 0.7;
 }
 
 /* Button "Bad" */
@@ -247,6 +257,11 @@ header h1 {
     background-color: var(--dark-blue);
     color: white;
     cursor: pointer;
+    transition: opacity .15s ease-in-out;
+}
+
+.mv-bar button:hover {
+    opacity: 0.7;
 }
 
 /* Hide meta properties */
