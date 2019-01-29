@@ -44,6 +44,11 @@ header h1 {
     border-bottom: 3px solid var(--dark-blue);
 }
 
+/* Hide Add button that Mavo generates */
+[mv-app="FlashcardStudyApp"] button[class*="mv-add-flashcard"] {
+    display: none;
+}
+
 /* Style area with flashcards */
 [mv-app="FlashcardStudyApp"] > section:first-of-type {
     display: grid;
