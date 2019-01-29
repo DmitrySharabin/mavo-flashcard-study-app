@@ -6,35 +6,40 @@
 			"translationVisible": false,
 			"rank": "0",
 			"source": "Noël",
-			"translation": "Christmas"
+			"translation": "Christmas",
+			"example": "Joyeux Noël !"
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
 			"rank": "0",
 			"source": "Musée",
-			"translation": "Museum"
+			"translation": "Museum",
+			"example": "Une ville musée."
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
 			"rank": "0",
 			"source": "Monument",
-			"translation": "Monument"
+			"translation": "Monument",
+			"example": "Monument à la gloire d'un héros de guerre."
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
 			"rank": "0",
 			"source": "Théâtre",
-			"translation": "Theatre"
+			"translation": "Theatre",
+			"example": "C'est un homme de théâtre."
 		},
 		{
 			"mode": "read",
 			"translationVisible": false,
 			"rank": "0",
 			"source": "École",
-			"translation": "School"
+			"translation": "School",
+			"example": "Le directeur a réuni toute l'école."
 		}
 	]
 }
