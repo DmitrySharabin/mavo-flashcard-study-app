@@ -66,6 +66,13 @@
                     [translation]
                 </p>
 
+                <h2 mv-if="mode = edit or translationVisible">Example</h2>
+                <textarea property="example" mv-if="mode = edit" lang="fr"></textarea>
+
+                <p mv-if="mode = read  and translationVisible" mv-action="set(mode, edit)">
+                    [example]
+                </p>
+
                 <button mv-if="mode = edit"
                         mv-action="set(mode, read), set(translationVisible, false)"
                         disabled="[len(source) = 0 or len(translation) = 0 or len(rank) = 0]">
