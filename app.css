@@ -225,6 +225,10 @@ header h1 {
     background-color: var(--dark-green);
     justify-self: end;
 }
+/* Hide Add button that Mavo generates */
+[mv-app="FlashcardStudyApp"] button[class*="mv-add-flashcard"] {
+    display: none;
+}
 
 /* Style Mavo bar */
 .mv-bar {
