@@ -24,7 +24,7 @@
 
     <main mv-app="FlashcardStudyApp" mv-storage="local" mv-autosave="3">
 
-        <meta property="specialCharacters" mv-default="à â ä ç è é ê ë î ï ô ù û ü œ ">
+        <meta property="specialCharacters" mv-default="à â ä ç è é ê ë î ï ô ù û ü œ">
 
         <button title="Add flashcard" mv-action="add(flashcard, 0)">
             <i class="fa fa-plus"></i>Add Flashcard
@@ -45,8 +45,8 @@
 
                 <details mv-if="mode = edit">
                     <summary>Special Characters</summary>
-                    <span property="character" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters)"
-                          mv-action="set(source, source & character)" title="[character]" tabindex="0"></span>
+                    <span property="character" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
+                          mv-action="set(source, source & character)" mv-mode="read" title="[character]" tabindex="0"></span>
                 </details>
 
                 <p mv-if="mode = read" mv-action="set(mode, edit)">
