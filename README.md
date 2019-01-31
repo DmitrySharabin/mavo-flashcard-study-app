@@ -37,9 +37,9 @@ Working with the app you are able to:
 
 Flashcards move depending on the ranking after self-grading:
 
-- in case you choose **Bad** answer, rank becomes equal to 0, and the flashcard moves to the beginning
-- in case you choose **Good** Answer, rank increases by 1, and the flashcard doesn't move
-- in case you choose **Great** Answer, rank increases by 2, and the flashcard moves to the end
+- in case you rank your answer as **Bad**, the rank becomes equal to 0, and the flashcard moves to the beginning
+- in case you rank your answer as **Good**, the rank increases by 1, and the flashcard doesn't move
+- in case you rank your answer as **Great**, the rank increases by 2, and the flashcard moves to the end
 
 ## License
 
