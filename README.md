@@ -1,4 +1,4 @@
-# Mavo flashcard Study App
+# Mavo Flashcard Study App
 
 ![Flashcard Study App|1080x688, 50%](./images/1.png)
 
