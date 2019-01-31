@@ -11,7 +11,7 @@ To see the app in action follow the [link](https://dmitrysharabin.github.io/mavo
 Working with the app you are able to:
 
 - create new flashcards
-- edit flashcard source phrase, translation and examples
+- edit flashcard source phrase, translation and example
 - add special characters to the source phrase when needed
 - edit rank when needed
 
@@ -27,7 +27,7 @@ Working with the app you are able to:
 
 ![Import and Export flashcards, Delete all flashcards|286x48, 100%](./images/6.png)
 
-- reveal translation and examples when needed
+- reveal translation and example when needed
 
 ![Request Translation|355x190, 50%](./images/3.png)
 
