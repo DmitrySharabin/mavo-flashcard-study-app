@@ -164,11 +164,17 @@ header h1 {
     color: white;
     font-size: 1.3rem;
     transition: opacity .15s ease-in-out;
+    cursor: pointer;
 }
 
 /* Style Save button */
+[property="flashcard"] > button:last-of-type:hover:not(:disabled) {
+    opacity: 0.7;
+}
+
 [property="flashcard"] > button:last-of-type:disabled {
     background-color: var(--gray);
+    cursor: default;
 }
 
 /* Style buttons with icons */
@@ -180,7 +186,6 @@ header h1 {
 [mv-app="FlashcardStudyApp"] > button {
     margin: 0 0 1rem 0;
     background-color: var(--green);
-    cursor: pointer;
 }
 
 [mv-app="FlashcardStudyApp"] > button:hover {
@@ -193,7 +198,6 @@ header h1 {
     color: initial;
     font-style: italic;
     font-size: 1.1rem;
-    cursor: pointer;
 }
 
 /* Style section with buttons (translation is visible) */
@@ -208,7 +212,6 @@ header h1 {
     margin: 0.3rem 0;
     width: 4rem;
     text-align: center;
-    cursor: pointer;
 }
 
 [property="flashcard"] > section:last-of-type button:hover {
