@@ -1,12 +1,12 @@
 {
     "name": "Flashcard Study App | Mavo",
-    "short_name": "Flashcard Study",
+    "short_name": "Flashcards",
     "description": "This app is dedicated to those who study foreign languages (e.g. French).",
     "theme_color": "#00449e",
     "background_color": "#ffffff",
     "display": "fullscreen",
-    "scope": "/",
-    "start_url": "/",
+    "scope": ".",
+    "start_url": ".",
     "icons": [
         {
           "src": "images/icons/icon-72x72.png",
