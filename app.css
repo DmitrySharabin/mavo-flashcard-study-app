@@ -95,6 +95,24 @@ header h1 {
     cursor: default;
 }
 
+[property="flashcard"] > aside > input {
+    padding: 0.1rem 0;
+    margin: 0.4rem auto;
+    max-width: 1.45rem;
+    background-color: var(--washed-yellow);
+}
+
+/*
+    There is no room for spinners.
+    Turn Off Number Input Spinners: https://css-tricks.com/snippets/css/turn-off-number-input-spinners/
+*/
+[property="flashcard"] > aside > input::-webkit-inner-spin-button,
+[property="flashcard"] > aside > input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Style the main content */
 [property="flashcard"] h2 {
     margin: 0 0 0.5rem;
     padding: 0;

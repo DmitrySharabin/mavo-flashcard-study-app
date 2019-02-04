@@ -37,7 +37,7 @@
                 <meta property="translationVisible" mv-default="false">
 
                 <aside title="Rank">
-                    <span mv-if="mode = edit" property="rank" mv-default="0"></span>
+                    <input type="number" min="0" mv-if="mode = edit" property="rank" mv-default="0">
                     <span mv-if="mode = read">[rank]</span>
                 </aside>
 
