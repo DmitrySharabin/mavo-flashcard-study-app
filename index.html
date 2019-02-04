@@ -46,8 +46,8 @@
 
                 <details mv-if="mode = edit">
                     <summary>Special Characters</summary>
-                    <span property="character" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
-                          mv-action="set(source, source & character)" mv-mode="read" title="[character]" tabindex="0"></span>
+                    <span property="character4source" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
+                          mv-action="set(source, source & character4source)" mv-mode="read" title="[character4source]" tabindex="0"></span>
                 </details>
 
                 <p mv-if="mode = read" mv-action="set(mode, edit)">
@@ -73,6 +73,12 @@
                 <p mv-if="mode = read and translationVisible and len(example) > 0" mv-action="set(mode, edit)">
                     [example]
                 </p>
+
+                <details mv-if="mode = edit">
+                    <summary>Special Characters</summary>
+                    <span property="character4example" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
+                          mv-action="set(example, example & character4example)" mv-mode="read" title="[character4example]" tabindex="0"></span>
+                </details>
 
                 <button mv-if="mode = edit"
                         mv-action="set(mode, read), set(translationVisible, false)"

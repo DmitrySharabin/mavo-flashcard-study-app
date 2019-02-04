@@ -12,10 +12,10 @@ Working with the app you are able to:
 
 - create new flashcards
 - edit flashcard source phrase, translation and example
-- add special characters to the source phrase when needed
+- add special characters to the source phrase and the example when needed
 - edit rank when needed
 
-![Edit flashcard|285x695, 50%](./images/2.png)
+![Edit flashcard|317x810, 75%](./images/2.png)
 
 - delete flashcards
 - rearrange flashcards
