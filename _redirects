@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://flashcard-study.netlify.com/* https://flashcards.d12n.me/:splat 301!
