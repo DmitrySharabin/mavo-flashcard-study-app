@@ -23,16 +23,23 @@
 </head>
 
 <body>
-    <header>
-        <h1>Flashcard Study</h1>
-    </header>
 
-    <main mv-app="FlashcardStudyApp" mv-storage="local" mv-autosave="3">
+    <main mv-app="FlashcardStudyApp" mv-storage="local" mv-autosave="3" mv-plugins="locale-ru">
+
+        <meta property="appLanguage" content="en">
+
+        <header>
+            <h1>[phrase("app-name", appLanguage)]</h1>
+            <aside class="app-lang">
+                <button mv-action="set(appLanguage, en)">en</button>
+                <button mv-action="set(appLanguage, ru)">ru</button>
+            </aside>
+        </header>
 
         <meta property="specialCharacters" content="à â ä ç è é ê ë î ï ô ù û ü œ" mv-storage="none">
 
-        <button title="Add flashcard" class="mv-add-flashcard">
-            <i class="fa fa-plus"></i>Add Flashcard
+        <button title="[phrase('add-item', group(name: phrase('item-name', appLanguage)), appLanguage)]" class="mv-add-flashcard">
+            <i class="fa fa-plus"></i>[phrase("add-item", group(name: phrase("item-name", appLanguage)), appLanguage)]
         </button>
 
         <section>
@@ -46,11 +53,11 @@
                     <span mv-if="mode = read">[rank]</span>
                 </aside>
 
-                <h2>Word, phrase, or sentence</h2>
+                <h2>[phrase("source-header", appLanguage)]</h2>
                 <textarea property="source" mv-if="mode = edit"></textarea>
 
                 <details mv-if="mode = edit">
-                    <summary>Special Characters</summary>
+                    <summary>[phrase("special-characters-header", appLanguage)]</summary>
                     <span property="character4source" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
                           mv-action="set(source, source & character4source)" mv-mode="read" title="[character4source]" tabindex="0"></span>
                 </details>
@@ -62,17 +69,17 @@
                 <button mv-if="mode = read and !translationVisible"
                         mv-action="set(translationVisible, true)"
                         class="show-translation">
-                    <i class="fa fa-eye"></i>Show Translation
+                    <i class="fa fa-eye"></i>[phrase("show-translation-header", appLanguage)]
                 </button>
 
-                <h2 mv-if="mode = edit or translationVisible">Translation</h2>
+                <h2 mv-if="mode = edit or translationVisible">[phrase("translation-header", appLanguage)]</h2>
                 <textarea property="translation" mv-if="mode = edit" lang="fr"></textarea>
 
                 <p mv-if="mode = read and translationVisible" mv-action="set(mode, edit)">
                     [translation]
                 </p>
 
-                <h2 mv-if="mode = edit or (translationVisible and len(example) > 0)">Example</h2>
+                <h2 mv-if="mode = edit or (translationVisible and len(example) > 0)">[phrase("example-header", appLanguage)]</h2>
                 <textarea property="example" mv-if="mode = edit" lang="fr"></textarea>
 
                 <p mv-if="mode = read and translationVisible and len(example) > 0" mv-action="set(mode, edit)">
@@ -80,7 +87,7 @@
                 </p>
 
                 <details mv-if="mode = edit">
-                    <summary>Special Characters</summary>
+                    <summary>[phrase("special-characters-header", appLanguage)]</summary>
                     <span property="character4example" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
                           mv-action="set(example, example & character4example)" mv-mode="read" title="[character4example]" tabindex="0"></span>
                 </details>
@@ -88,18 +95,18 @@
                 <button mv-if="mode = edit"
                         mv-action="set(mode, read), set(translationVisible, false)"
                         disabled="[len(source) = 0 or len(translation) = 0 or len(rank) = 0]">
-                    Save
+                    [phrase("save-button-text", appLanguage)]
                 </button>
 
                 <section mv-if="mode = read and translationVisible">
                     <button mv-action="set(rank, 0), set(translationVisible, false), move(flashcard, 0)">
-                        Bad
+                        [phrase("bad-button-text", appLanguage)]
                     </button>
                     <button mv-action="set(rank, rank + 1), set(translationVisible, false)">
-                        Good
+                        [phrase("good-button-text", appLanguage)]
                     </button>
                     <button mv-action="set(rank, rank + 2), set(translationVisible, false), move(flashcard, count($all))">
-                        Great
+                        [phrase("great-button-text", appLanguage)]
                     </button>
                 </section>
 
@@ -108,15 +115,47 @@
 
         <section class="mv-bar" mv-bar="import export">
             <button class="mv-import" title="Load flashcards from file">
-                <i class="fa fa-upload"></i>Import
+                <i class="fa fa-upload"></i>[phrase("import", appLanguage)]
             </button>
             <button mv-if="count(flashcard) > 0" class="mv-export" title="Save flashcards to file">
-                <i class="fa fa-download"></i>Export
+                <i class="fa fa-download"></i>[phrase("export", appLanguage)]
             </button>
             <button mv-if="count(flashcard) > 0" mv-action="delete(flashcard where len(source) > 0)" title="Delete all flashcards">
-                <i class="fa fa-trash"></i>Reset
+                <i class="fa fa-trash"></i>[phrase("reset-button-text", appLanguage)]
             </button>
         </section>
+
+        <!-- Localization Phrases -->
+
+        <datalist class="mv-phrases" lang="en">
+            <option value="app-name">Flashcard Study</option>
+            <option value="item-name">Flashcard</option>
+            <option value="source-header">Word, phrase, or sentence</option>
+            <option value="special-characters-header">Special Characters</option>
+            <option value="show-translation-header">Show Translation</option>
+            <option value="translation-header">Translation</option>
+            <option value="example-header">Example</option>
+            <option value="save-button-text">Save</option>
+            <option value="bad-button-text">Bad</option>
+            <option value="good-button-text">Good</option>
+            <option value="great-button-text">Great</option>
+            <option value="reset-button-text">Reset</option>
+        </datalist>
+
+        <datalist class="mv-phrases" lang="ru">
+            <option value="app-name">Словарные карточки</option>
+            <option value="item-name">карточку</option>
+            <option value="source-header">Слово, фраза или предложение</option>
+            <option value="special-characters-header">Специальные символы</option>
+            <option value="show-translation-header">Показать перевод</option>
+            <option value="translation-header">Перевод</option>
+            <option value="example-header">Пример</option>
+            <option value="save-button-text">Сохранить</option>
+            <option value="bad-button-text">П</option>
+            <option value="good-button-text">Х</option>
+            <option value="great-button-text">О</option>
+            <option value="reset-button-text">Сбросить</option>
+        </datalist>
     </main>
 
     <footer>
