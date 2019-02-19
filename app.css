@@ -36,12 +36,29 @@ body {
     --gray: hsl(0, 0%, 47%);
 }
 
+header {
+    position: relative;
+}
+
 header h1 {
     padding-bottom: 0.4rem;
     color: var(--dark-blue);
     font-weight: 600;
     font-size: 2rem;
     border-bottom: 3px solid var(--dark-blue);
+}
+
+.app-lang {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.app-lang > button {
+    border: none;
+    padding: 0;
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
 }
 
 /* Style area with flashcards */
