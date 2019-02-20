@@ -118,13 +118,13 @@
 
         <section class="mv-bar" mv-bar="import export">
             <button class="mv-import" title="[phrase('import-button-hint', appLanguage)]">
-                <i class="fa fa-upload"></i>[phrase("import", appLanguage)]
+                <i class="fa fa-upload [if(appLanguage = ru, hide)]"></i>[phrase("import-button-text", appLanguage)]
             </button>
             <button mv-if="count(flashcard) > 0" class="mv-export" title="[phrase('export-button-hint', appLanguage)]">
-                <i class="fa fa-download"></i>[phrase("export", appLanguage)]
+                <i class="fa fa-download [if(appLanguage = ru, hide)]"></i>[phrase("export-button-text", appLanguage)]
             </button>
             <button mv-if="count(flashcard) > 0" mv-action="delete(flashcard where len(source) > 0)" title="[phrase('reset-button-hint', appLanguage)]">
-                <i class="fa fa-trash"></i>[phrase("reset-button-text", appLanguage)]
+                <i class="fa fa-trash [if(appLanguage = ru, hide)]"></i>[phrase("reset-button-text", appLanguage)]
             </button>
         </section>
 
@@ -163,6 +163,8 @@
         <option value="bad-button-text">Bad</option>
         <option value="good-button-text">Good</option>
         <option value="great-button-text">Great</option>
+        <option value="import-button-text">Import</option>
+        <option value="export-button-text">Export</option>
         <option value="reset-button-text">Reset</option>
         <!-- Hints -->
         <option value="rank-hint">Rank</option>
@@ -185,7 +187,9 @@
         <option value="bad-button-text">👎</option>
         <option value="good-button-text">👍</option>
         <option value="great-button-text">👏</option>
-        <option value="reset-button-text">Сбросить</option>
+        <option value="import-button-text">Загрузить</option>
+        <option value="export-button-text">Сохранить</option>
+        <option value="reset-button-text">Удалить</option>
         <!-- Hints -->
         <option value="rank-hint">Рейтинг</option>
         <option value="import-button-hint">Загрузить карточки из файла</option>
