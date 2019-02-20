@@ -30,8 +30,8 @@
         <meta property="appLanguage" content="en">
 
         <aside class="app-lang">
-            <button mv-action="set(appLanguage, en)">🇺🇸</button>
-            <button mv-action="set(appLanguage, ru)">🇷🇺</button>
+            <button mv-action="set(appLanguage, en)" title="Translate into English">🇺🇸</button>
+            <button mv-action="set(appLanguage, ru)" title="Перевести на русский">🇷🇺</button>
         </aside>
 
     </header>
@@ -50,7 +50,7 @@
                 <meta property="mode" mv-default="edit">
                 <meta property="translationVisible" mv-default="false">
 
-                <aside title="Rank">
+                <aside title="[phrase('rank-hint', appLanguage)]">
                     <input type="number" min="0" mv-if="mode = edit" property="rank" mv-default="0">
                     <span mv-if="mode = read">[rank]</span>
                 </aside>
@@ -116,13 +116,13 @@
         </section>
 
         <section class="mv-bar" mv-bar="import export">
-            <button class="mv-import" title="Load flashcards from file">
+            <button class="mv-import" title="[phrase('import-button-hint', appLanguage)]">
                 <i class="fa fa-upload"></i>[phrase("import", appLanguage)]
             </button>
-            <button mv-if="count(flashcard) > 0" class="mv-export" title="Save flashcards to file">
+            <button mv-if="count(flashcard) > 0" class="mv-export" title="[phrase('export-button-hint', appLanguage)]">
                 <i class="fa fa-download"></i>[phrase("export", appLanguage)]
             </button>
-            <button mv-if="count(flashcard) > 0" mv-action="delete(flashcard where len(source) > 0)" title="Delete all flashcards">
+            <button mv-if="count(flashcard) > 0" mv-action="delete(flashcard where len(source) > 0)" title="[phrase('reset-button-hint', appLanguage)]">
                 <i class="fa fa-trash"></i>[phrase("reset-button-text", appLanguage)]
             </button>
         </section>
@@ -130,12 +130,19 @@
     </main>
 
     <footer>
-        <p>
+        <p mv-if="appLanguage = en">
             Inspired by <a href="http://lea.verou.me/" target="_blank">Lea Verou</a>
             and <a href="https://www.knowthen.com/" target="_blank">James Moore</a> and all the hard work
             they do by sharing their experience and knowledge.
             Made with ♥︎ by <a href="https://d12n.me/" target="_blank">Dmitry Sharabin</a>
             using <a href="https://mavo.io/" target="_blank">Mavo</a>.
+        </p>
+        <p mv-if="appLanguage = ru">
+            Сделано с ♥︎ <a href="https://d12n.me/" target="_blank">Дмитрием Шарабиным</a>
+            с помощью <a href="https://mavo.io/" target="_blank">Mavo</a>.
+            Приложение является результатом вдохновения от работ двух замечательных профессионалов:
+            <a href="http://lea.verou.me/" target="_blank">Лии Веру</a> и
+            <a href="https://www.knowthen.com/" target="_blank">Джеймса Мура</a>.
         </p>
     </footer>
 
@@ -144,31 +151,45 @@
     <datalist class="mv-phrases" lang="en">
         <option value="app-name">Flashcard Study</option>
         <option value="item-name">Flashcard</option>
+        <!-- Headers -->
         <option value="source-header">Word, phrase, or sentence</option>
         <option value="special-characters-header">Special Characters</option>
         <option value="show-translation-header">Show Translation</option>
         <option value="translation-header">Translation</option>
         <option value="example-header">Example</option>
+        <!-- Buttons -->
         <option value="save-button-text">Save</option>
         <option value="bad-button-text">Bad</option>
         <option value="good-button-text">Good</option>
         <option value="great-button-text">Great</option>
         <option value="reset-button-text">Reset</option>
+        <!-- Hints -->
+        <option value="rank-hint">Rank</option>
+        <option value="import-button-hint">Load flashcards from file</option>
+        <option value="export-button-hint">Save flashcards to file</option>
+        <option value="reset-button-hint">Delete all flashcards</option>
     </datalist>
 
     <datalist class="mv-phrases" lang="ru">
         <option value="app-name">Словарные карточки</option>
         <option value="item-name">карточку</option>
+        <!-- Headers -->
         <option value="source-header">Слово, фраза или предложение</option>
         <option value="special-characters-header">Специальные символы</option>
         <option value="show-translation-header">Показать перевод</option>
         <option value="translation-header">Перевод</option>
         <option value="example-header">Пример</option>
+        <!-- Buttons -->
         <option value="save-button-text">Сохранить</option>
-        <option value="bad-button-text">П</option>
-        <option value="good-button-text">Х</option>
-        <option value="great-button-text">О</option>
+        <option value="bad-button-text">Плохо</option>
+        <option value="good-button-text">Хорошо</option>
+        <option value="great-button-text">Отлично</option>
         <option value="reset-button-text">Сбросить</option>
+        <!-- Hints -->
+        <option value="rank-hint">Рейтинг</option>
+        <option value="import-button-hint">Загрузить карточки из файла</option>
+        <option value="export-button-hint">Сохранить карточки в файл</option>
+        <option value="reset-button-hint">Удалить все карточки</option>
     </datalist>
 </body>
 
