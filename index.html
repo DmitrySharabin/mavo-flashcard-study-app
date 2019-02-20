@@ -22,19 +22,21 @@
     <title>Flashcard Study | Mavo</title>
 </head>
 
-<body>
+<body mv-app="FlashcardStudyApp" mv-storage="local" mv-autosave="3" mv-plugins="locale-ru">
+    <header>
 
-    <main mv-app="FlashcardStudyApp" mv-storage="local" mv-autosave="3" mv-plugins="locale-ru">
+        <h1>[phrase("app-name", appLanguage)]</h1>
 
         <meta property="appLanguage" content="en">
 
-        <header>
-            <h1>[phrase("app-name", appLanguage)]</h1>
-            <aside class="app-lang">
-                <button mv-action="set(appLanguage, en)">🇺🇸</button>
-                <button mv-action="set(appLanguage, ru)">🇷🇺</button>
-            </aside>
-        </header>
+        <aside class="app-lang">
+            <button mv-action="set(appLanguage, en)">🇺🇸</button>
+            <button mv-action="set(appLanguage, ru)">🇷🇺</button>
+        </aside>
+
+    </header>
+
+    <main>
 
         <meta property="specialCharacters" content="à â ä ç è é ê ë î ï ô ù û ü œ" mv-storage="none">
 
@@ -125,37 +127,6 @@
             </button>
         </section>
 
-        <!-- Localization Phrases -->
-
-        <datalist class="mv-phrases" lang="en">
-            <option value="app-name">Flashcard Study</option>
-            <option value="item-name">Flashcard</option>
-            <option value="source-header">Word, phrase, or sentence</option>
-            <option value="special-characters-header">Special Characters</option>
-            <option value="show-translation-header">Show Translation</option>
-            <option value="translation-header">Translation</option>
-            <option value="example-header">Example</option>
-            <option value="save-button-text">Save</option>
-            <option value="bad-button-text">Bad</option>
-            <option value="good-button-text">Good</option>
-            <option value="great-button-text">Great</option>
-            <option value="reset-button-text">Reset</option>
-        </datalist>
-
-        <datalist class="mv-phrases" lang="ru">
-            <option value="app-name">Словарные карточки</option>
-            <option value="item-name">карточку</option>
-            <option value="source-header">Слово, фраза или предложение</option>
-            <option value="special-characters-header">Специальные символы</option>
-            <option value="show-translation-header">Показать перевод</option>
-            <option value="translation-header">Перевод</option>
-            <option value="example-header">Пример</option>
-            <option value="save-button-text">Сохранить</option>
-            <option value="bad-button-text">П</option>
-            <option value="good-button-text">Х</option>
-            <option value="great-button-text">О</option>
-            <option value="reset-button-text">Сбросить</option>
-        </datalist>
     </main>
 
     <footer>
@@ -167,6 +138,38 @@
             using <a href="https://mavo.io/" target="_blank">Mavo</a>.
         </p>
     </footer>
+
+    <!-- Localization Phrases -->
+
+    <datalist class="mv-phrases" lang="en">
+        <option value="app-name">Flashcard Study</option>
+        <option value="item-name">Flashcard</option>
+        <option value="source-header">Word, phrase, or sentence</option>
+        <option value="special-characters-header">Special Characters</option>
+        <option value="show-translation-header">Show Translation</option>
+        <option value="translation-header">Translation</option>
+        <option value="example-header">Example</option>
+        <option value="save-button-text">Save</option>
+        <option value="bad-button-text">Bad</option>
+        <option value="good-button-text">Good</option>
+        <option value="great-button-text">Great</option>
+        <option value="reset-button-text">Reset</option>
+    </datalist>
+
+    <datalist class="mv-phrases" lang="ru">
+        <option value="app-name">Словарные карточки</option>
+        <option value="item-name">карточку</option>
+        <option value="source-header">Слово, фраза или предложение</option>
+        <option value="special-characters-header">Специальные символы</option>
+        <option value="show-translation-header">Показать перевод</option>
+        <option value="translation-header">Перевод</option>
+        <option value="example-header">Пример</option>
+        <option value="save-button-text">Сохранить</option>
+        <option value="bad-button-text">П</option>
+        <option value="good-button-text">Х</option>
+        <option value="great-button-text">О</option>
+        <option value="reset-button-text">Сбросить</option>
+    </datalist>
 </body>
 
 </html>

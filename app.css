@@ -62,7 +62,7 @@ header h1 {
 }
 
 /* Style area with flashcards */
-[mv-app="FlashcardStudyApp"] > section:first-of-type {
+[mv-app="FlashcardStudyApp"] > main > section:first-of-type {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     grid-gap: 1rem;
@@ -190,7 +190,7 @@ header h1 {
 }
 
 /* Default styles of all buttons */
-[property="flashcard"] button, [mv-app="FlashcardStudyApp"] > button {
+[property="flashcard"] button, [mv-app="FlashcardStudyApp"] > main > button {
     margin: 1rem 0 0;
     padding: 0.5rem;
     border-radius: 0.2rem;
@@ -218,12 +218,12 @@ header h1 {
 }
 
 /* Style Add Flashcard button */
-[mv-app="FlashcardStudyApp"] > button {
+[mv-app="FlashcardStudyApp"] > main > button {
     margin: 0 0 1rem 0;
     background-color: var(--green);
 }
 
-[mv-app="FlashcardStudyApp"] > button:hover {
+[mv-app="FlashcardStudyApp"] > main > button:hover {
     opacity: 0.7;
 }
 
