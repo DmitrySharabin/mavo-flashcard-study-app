@@ -1,5 +1,8 @@
 {
-	"appLanguage": "en",
+	"settings": {
+		"appLanguage": "en",
+		"specialCharacters": "àâäçèéêëîïôùûüœ"
+	},
 	"flashcard": [
 		{
 			"mode": "read",

@@ -25,22 +25,46 @@
 <body mv-app="FlashcardStudyApp" mv-storage="local" mv-autosave="3"
       mv-plugins="locale-ru" mv-init="example.json">
     <header>
-
         <h1>[phrase("app-name", appLanguage)]</h1>
 
-        <meta property="appLanguage" content="en">
+        <label>
+            <i class="fa fa-sliders" title="[phrase('settings-button-hint', appLanguage)]"></i><input type="checkbox" property="settingsVisible" mv-storage="none">
+        </label>
 
-        <aside class="app-lang">
-            <button mv-action="set(appLanguage, en)" title="Translate into English">🇺🇸</button>
-            <button mv-action="set(appLanguage, ru)" title="Перевести на русский">🇷🇺</button>
+        <aside property="settings" class="[if(settingsVisible, 'show-settings')]">
+            <meta property="appLanguage" content="en">
+
+            <meta property="specialCharacters" content="àâäçèéêëîïôùûüœ">
+
+            <h2>[phrase('settings-button-hint', appLanguage)]</h2>
+
+            <section class="app-lang">
+                [phrase('choose-language-label', appLanguage)]:
+                <button mv-action="set(appLanguage, en)" title="Translate into English">🇺🇸</button>
+                <button mv-action="set(appLanguage, ru)" title="Перевести на русский">🇷🇺</button>
+            </section>
+
+            <section class="add-character">
+                <label>
+                    [phrase("input-character-label", appLanguage)]:
+                    <input property="inputCharacter" mv-storage="none" type="text" maxlength="1">
+                </label>
+                <button mv-action="set(specialCharacters, specialCharacters & inputCharacter), set(inputCharacter, '')"
+                        disabled="[len(inputCharacter) = 0]">
+                    [phrase("add-button-text", appLanguage)]
+                </button>
+            </section>
+
+            <section class="special-characters" mv-if="len(specialCharacters) > 0">
+                <h3>[phrase("special-characters-header", appLanguage)]</h3>
+                <span property="character" mv-multiple mv-value="split(specialCharacters, '')"
+                      mv-action="set(specialCharacters, replace(specialCharacters, character, ''))"
+                      mv-mode="read" title="[phrase('delete-character-hint', appLanguage)]" tabindex="0" mv-storage="none"></span>
+            </section>
         </aside>
-
     </header>
 
     <main>
-
-        <meta property="specialCharacters" content="à â ä ç è é ê ë î ï ô ù û ü œ" mv-storage="none">
-
         <button title="[phrase('add-item', group(name: phrase('item-name', appLanguage)), appLanguage)]" class="mv-add-flashcard">
             <i class="fa fa-plus"></i>[phrase("add-item", group(name: phrase("item-name", appLanguage)), appLanguage)]
         </button>
@@ -59,9 +83,9 @@
                 <h2>[phrase("source-header", appLanguage)]</h2>
                 <textarea property="source" mv-if="mode = edit"></textarea>
 
-                <details mv-if="mode = edit">
+                <details mv-if="mode = edit and len(specialCharacters) > 0">
                     <summary>[phrase("special-characters-header", appLanguage)]</summary>
-                    <span property="character4source" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
+                    <span property="character4source" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters, '')"
                           mv-action="set(source, source & character4source)" mv-mode="read" title="[character4source]" tabindex="0"></span>
                 </details>
 
@@ -89,9 +113,9 @@
                     [example]
                 </p>
 
-                <details mv-if="mode = edit">
+                <details mv-if="mode = edit and len(specialCharacters) > 0">
                     <summary>[phrase("special-characters-header", appLanguage)]</summary>
-                    <span property="character4example" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
+                    <span property="character4example" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters, '')"
                           mv-action="set(example, example & character4example)" mv-mode="read" title="[character4example]" tabindex="0"></span>
                 </details>
 
@@ -112,7 +136,6 @@
                         [phrase("great-button-text", appLanguage)]
                     </button>
                 </section>
-
             </article>
         </section>
 
@@ -127,7 +150,6 @@
                 <i class="fa fa-trash [if(appLanguage = ru, hide)]"></i>[phrase("reset-button-text", appLanguage)]
             </button>
         </section>
-
     </main>
 
     <footer>
@@ -158,7 +180,11 @@
         <option value="show-translation-header">Show Translation</option>
         <option value="translation-header">Translation</option>
         <option value="example-header">Example</option>
+        <!-- Labels -->
+        <option value="choose-language-label">Language</option>
+        <option value="input-character-label">Character</option>
         <!-- Buttons -->
+        <option value="add-button-text">Add</option>
         <option value="save-button-text">Save</option>
         <option value="bad-button-text">Bad</option>
         <option value="good-button-text">Good</option>
@@ -167,6 +193,8 @@
         <option value="export-button-text">Export</option>
         <option value="reset-button-text">Reset</option>
         <!-- Hints -->
+        <option value="settings-button-hint">Settings</option>
+        <option value="delete-character-hint">Delete character</option>
         <option value="rank-hint">Rank</option>
         <option value="import-button-hint">Load flashcards from file</option>
         <option value="export-button-hint">Save flashcards to file</option>
@@ -182,7 +210,11 @@
         <option value="show-translation-header">Показать перевод</option>
         <option value="translation-header">Перевод</option>
         <option value="example-header">Пример</option>
+        <!-- Labels -->
+        <option value="choose-language-label">Язык</option>
+        <option value="input-character-label">Символ</option>
         <!-- Buttons -->
+        <option value="add-button-text">Добавить</option>
         <option value="save-button-text">Сохранить</option>
         <option value="bad-button-text">👎</option>
         <option value="good-button-text">👍</option>
@@ -191,6 +223,8 @@
         <option value="export-button-text">Сохранить</option>
         <option value="reset-button-text">Удалить</option>
         <!-- Hints -->
+        <option value="settings-button-hint">Настройки</option>
+        <option value="delete-character-hint">Удалить символ</option>
         <option value="rank-hint">Рейтинг</option>
         <option value="import-button-hint">Загрузить карточки из файла</option>
         <option value="export-button-hint">Сохранить карточки в файл</option>
