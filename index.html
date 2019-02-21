@@ -49,7 +49,7 @@
                     [phrase("input-character-label", appLanguage)]:
                     <input property="inputCharacter" mv-storage="none" type="text" maxlength="1">
                 </label>
-                <button mv-action="set(specialCharacters, specialCharacters & inputCharacter), set(inputCharacter, '')"
+                <button mv-action="set(specialCharacters, specialCharacters & lowercase(inputCharacter)), set(inputCharacter, '')"
                         disabled="[len(inputCharacter) = 0]">
                     [phrase("add-button-text", appLanguage)]
                 </button>
