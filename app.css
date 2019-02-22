@@ -48,59 +48,14 @@ header h1 {
     border-bottom: 3px solid var(--dark-blue);
 }
 
-header > label {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: var(--dark-blue);
-    font-size: 2rem;
-    background: none;
-    border: none;
-}
-
-header > label .fa {
+header button .fa {
     padding-right: 0;
-}
-
-header input[type="checkbox"] {
-    display: none;
 }
 
 [property="settings"] {
     position: absolute;
-    z-index: 100;
-    left: calc(50% - 160px);
-    transform: scale(0);
-    opacity: 0;
-    width: 320px;
-    text-align: center;
-    background-color: var(--washed-yellow);
-    border: 3px solid var(--dark-blue);
-    transition: all 0.3s cubic-bezier(.17,.67,.51,1.47);
-}
-
-[property="settings"].show-settings {
-    transform: scale(1);
-    opacity: 1;
-}
-
-[property="settings"] > h2 {
-    margin: 0;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 400;
-    background-color: var(--dark-blue);
-    color: white;
-    cursor: default;
-}
-
-.app-lang {
-    font-size: 1.2rem;
-    margin: 0 0.8rem;
-    text-align: left;
-    cursor: default;
+    right: 0;
+    top: 5px;
 }
 
 .app-lang > button {
@@ -108,35 +63,19 @@ header input[type="checkbox"] {
     border: none;
     padding: 0;
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     cursor: pointer;
 }
 
 .add-character {
-    font-size: 1.3rem;
     text-align: left;
-    margin: 1rem 0.8rem 1.5rem;
+    margin: 0 0 1.5rem 1.12rem;
 }
 
 .add-character input[type="text"] {
     width: 2ch;
     min-height: 20px;
     font-size: 1rem;
-}
-
-.add-character button {
-    min-height: 20px;
-    font-size: 1rem;
-    margin-left: 0.3rem;
-}
-
-.special-characters {
-    margin: 0.8rem;
-}
-
-.special-characters > h3 {
-    font-size: 1.2rem;
-    font-weight: 400;
 }
 
 /* Style area with flashcards */
@@ -257,7 +196,7 @@ span[property*="character"] {
 }
 
 span[property="character"] {
-    margin: 0.5rem;
+    margin: 0.5rem 0.35rem;
 }
 
 [property="character"]::after {
@@ -300,12 +239,27 @@ span[property="character"] {
     cursor: pointer;
 }
 
+/* Style Add (character) button */
+.add-character button {
+    min-height: 20px;
+    font-size: 1rem;
+    margin-left: 0.3rem;
+}
+
+/* Style Customize/Done button */
+[property="flashcard"] > details > button {
+    margin-top: 0.5rem;
+    min-height: 20px;
+    font-size: 1rem;
+}
+
 /* Style Save button */
 [property="flashcard"] > button:last-of-type:hover:not(:disabled) {
     opacity: 0.7;
 }
 
-[property="flashcard"] > button:last-of-type:disabled {
+[property="flashcard"] > button:last-of-type:disabled,
+.add-character button:disabled {
     background-color: var(--gray);
     cursor: default;
 }
