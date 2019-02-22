@@ -380,6 +380,11 @@ footer * {
     color: inherit;
 }
 
+/* Hide everything while the app is being loaded */
+[mv-progress="Loading"] > * {
+    visibility: hidden;
+}
+
 /* Hide icons on narrow screens */
 @media screen and (max-width: 415px) {
     .hide {
