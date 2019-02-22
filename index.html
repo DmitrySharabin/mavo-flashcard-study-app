@@ -59,15 +59,21 @@
                 <textarea property="source" mv-if="mode = edit"></textarea>
 
                 <details mv-if="mode = edit">
-                    <summary>[phrase("special-characters-header", appLanguage)]</summary>
+                    <summary>
+                        [phrase("special-characters-header", appLanguage)]
+                    </summary>
+
+                    <button class="btn-customize" mv-action="set(canCustomizeCharacters, true), event.stopPropagation()"
+                            mv-if="!canCustomizeCharacters"
+                            title="[phrase('customize-button-hint', appLanguage)]">
+                        <i class="fa fa-cog"></i>
+                    </button>
+
                     <meta property="canCustomizeCharacters" content="false" mv-storage="none">
+
                     <span property="character4source" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters, '')"
                           mv-if="!canCustomizeCharacters" mv-action="set(source, source & character4source)"
                           mv-mode="read" title="[character4source]" tabindex="0"></span>
-
-                    <br mv-if="!canCustomizeCharacters and len(specialCharacters) > 0">
-
-                    <button mv-action="set(canCustomizeCharacters, true)" mv-if="!canCustomizeCharacters">[phrase("customize-button-text", appLanguage)]</button>
 
                     <section class="add-character" mv-if="canCustomizeCharacters">
                         <label>
@@ -184,7 +190,6 @@
         <option value="input-character-label">Character</option>
         <!-- Buttons -->
         <option value="add-button-text">Add</option>
-        <option value="customize-button-text">Customize</option>
         <option value="done-button-text">Done</option>
         <option value="save-button-text">Save</option>
         <option value="bad-button-text">Bad</option>
@@ -194,6 +199,7 @@
         <option value="export-button-text">Export</option>
         <option value="reset-button-text">Reset</option>
         <!-- Hints -->
+        <option value="customize-button-hint">Customize</option>
         <option value="delete-character-hint">Delete character</option>
         <option value="rank-hint">Rank</option>
         <option value="import-button-hint">Load flashcards from file</option>
@@ -214,7 +220,6 @@
         <option value="input-character-label">Символ</option>
         <!-- Buttons -->
         <option value="add-button-text">Добавить</option>
-        <option value="customize-button-text">Настроить</option>
         <option value="done-button-text">Завершить</option>
         <option value="save-button-text">Сохранить</option>
         <option value="bad-button-text">👎</option>
@@ -224,6 +229,7 @@
         <option value="export-button-text">Сохранить</option>
         <option value="reset-button-text">Удалить</option>
         <!-- Hints -->
+        <option value="customize-button-hint">Настроить</option>
         <option value="delete-character-hint">Удалить символ</option>
         <option value="rank-hint">Рейтинг</option>
         <option value="import-button-hint">Загрузить карточки из файла</option>

@@ -48,7 +48,8 @@ header h1 {
     border-bottom: 3px solid var(--dark-blue);
 }
 
-header button .fa {
+/* Remove padding from buttons-icons (without text) */
+header button .fa, details button .fa {
     padding-right: 0;
 }
 
@@ -167,6 +168,7 @@ header button .fa {
 
 /* Style section with special characters */
 [property="flashcard"] > details {
+    position: relative;
     margin: 0.3rem 0 0.7rem 0;
     overflow-wrap: break-word;
     font-size: 1.1rem;
@@ -196,18 +198,19 @@ span[property*="character"] {
 }
 
 span[property="character"] {
-    margin: 0.5rem 0.35rem;
+    margin: 0.3rem;
 }
 
 [property="character"]::after {
     content: "✕";
     position: absolute;
-    top: -10px;
+    top: -7px;
     right: -7px;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 0.75rem;
+    width: 17px;
+    height: 17px;
+    line-height: 17px;
+    text-align: center;
+    font-size: 0.5rem;
     background-color: darkred;
     color: white;
     border-radius: 50%;
@@ -248,9 +251,21 @@ span[property="character"] {
 
 /* Style Customize/Done button */
 [property="flashcard"] > details > button {
-    margin-top: 0.5rem;
+    display: block;
+    margin: 0.5rem 0 0 auto;
     min-height: 20px;
     font-size: 1rem;
+}
+
+[property="flashcard"] > details .btn-customize {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: initial;
+    font-size: 1.2rem;
 }
 
 /* Style Save button */
