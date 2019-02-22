@@ -71,8 +71,10 @@
 
                     <meta property="canCustomizeCharacters" content="false" mv-storage="none">
 
+                    <!-- Can't use mv-if: the expression doesn't evaluate automatically (for 'display: none;' elements) -->
                     <span property="character4source" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters, '')"
-                          mv-if="!canCustomizeCharacters" mv-action="set(source, source & character4source)"
+                          mv-action="set(source, source & character4source)"
+                          style="[if(canCustomizeCharacters, 'position: absolute; visibility: hidden;', 'position: relative; visibility: initial;')]"
                           mv-mode="read" title="[character4source]" tabindex="0"></span>
 
                     <section class="add-character" mv-if="canCustomizeCharacters">
@@ -89,7 +91,7 @@
                     <section class="special-characters" mv-if="canCustomizeCharacters">
                         <span property="character" mv-multiple mv-value="split(specialCharacters, '')"
                               mv-action="set(specialCharacters, replace(specialCharacters, character, ''))"
-                              mv-mode="read" title="[phrase('delete-character-hint', appLanguage)]" tabindex="0" mv-storage="none"></span>
+                              mv-mode="read" title="[phrase('delete-character-hint', appLanguage)]" tabindex="0"></span>
                     </section>
 
                     <button mv-action="set(canCustomizeCharacters, false)" mv-if="canCustomizeCharacters">[phrase("done-button-text", appLanguage)]</button>
