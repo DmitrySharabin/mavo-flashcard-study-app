@@ -36,6 +36,10 @@ body {
     --gray: hsl(0, 0%, 47%);
 }
 
+header {
+    position: relative;
+}
+
 header h1 {
     padding-bottom: 0.4rem;
     color: var(--dark-blue);
@@ -44,8 +48,39 @@ header h1 {
     border-bottom: 3px solid var(--dark-blue);
 }
 
+/* Remove padding from buttons-icons (without text) */
+header button .fa, details button .fa {
+    padding-right: 0;
+}
+
+[property="settings"] {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.app-lang > button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.add-character {
+    text-align: left;
+    margin: 0 0 1.5rem 1.12rem;
+}
+
+.add-character input[type="text"] {
+    width: 2ch;
+    min-height: 20px;
+    font-size: 1rem;
+}
+
 /* Style area with flashcards */
-[mv-app="FlashcardStudyApp"] > section:first-of-type {
+[mv-app="FlashcardStudyApp"] > main > section:first-of-type {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     grid-gap: 1rem;
@@ -133,6 +168,7 @@ header h1 {
 
 /* Style section with special characters */
 [property="flashcard"] > details {
+    position: relative;
     margin: 0.3rem 0 0.7rem 0;
     overflow-wrap: break-word;
     font-size: 1.1rem;
@@ -145,18 +181,39 @@ header h1 {
 }
 
 /* Style special characters */
-[property="flashcard"] > details span {
+span[property*="character"] {
     display: inline-block;
+    position: relative;
     width: 40px;
     height: 40px;
     line-height: 40px;
     margin: 0.2rem;
     padding: 0.1rem;
+    text-align: center;
     font-weight: 500;
     border-radius: 0.2rem;
     background-color: var(--washed-yellow);
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+}
+
+span[property="character"] {
+    margin: 0.3rem;
+}
+
+[property="character"]::after {
+    content: "✕";
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    width: 17px;
+    height: 17px;
+    line-height: 17px;
+    text-align: center;
+    font-size: 0.5rem;
+    background-color: darkred;
+    color: white;
+    border-radius: 50%;
 }
 
 [property="flashcard"] p {
@@ -173,7 +230,7 @@ header h1 {
 }
 
 /* Default styles of all buttons */
-[property="flashcard"] button, [mv-app="FlashcardStudyApp"] > button {
+[property="flashcard"] button, [mv-app="FlashcardStudyApp"] > main > button {
     margin: 1rem 0 0;
     padding: 0.5rem;
     border-radius: 0.2rem;
@@ -185,12 +242,39 @@ header h1 {
     cursor: pointer;
 }
 
+/* Style Add (character) button */
+.add-character button {
+    min-height: 20px;
+    font-size: 1rem;
+    margin-left: 0.3rem;
+}
+
+/* Style Customize/Done button */
+[property="flashcard"] > details > button {
+    display: block;
+    margin: 0.5rem 0 0 auto;
+    min-height: 20px;
+    font-size: 1rem;
+}
+
+[property="flashcard"] > details .btn-customize {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: initial;
+    font-size: 1.2rem;
+}
+
 /* Style Save button */
 [property="flashcard"] > button:last-of-type:hover:not(:disabled) {
     opacity: 0.7;
 }
 
-[property="flashcard"] > button:last-of-type:disabled {
+[property="flashcard"] > button:last-of-type:disabled,
+.add-character button:disabled {
     background-color: var(--gray);
     cursor: default;
 }
@@ -201,12 +285,12 @@ header h1 {
 }
 
 /* Style Add Flashcard button */
-[mv-app="FlashcardStudyApp"] > button {
+[mv-app="FlashcardStudyApp"] > main > button {
     margin: 0 0 1rem 0;
     background-color: var(--green);
 }
 
-[mv-app="FlashcardStudyApp"] > button:hover {
+[mv-app="FlashcardStudyApp"] > main > button:hover {
     opacity: 0.7;
 }
 
@@ -294,4 +378,16 @@ footer * {
     font-weight: 400;
     font-size: 1rem;
     color: inherit;
+}
+
+/* Hide everything while the app is being loaded */
+[mv-progress="Loading"] > * {
+    visibility: hidden;
+}
+
+/* Hide icons on narrow screens */
+@media screen and (max-width: 415px) {
+    .hide {
+        display: none;
+    }
 }

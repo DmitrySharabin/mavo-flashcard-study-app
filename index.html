@@ -22,37 +22,79 @@
     <title>Flashcard Study | Mavo</title>
 </head>
 
-<body>
+<body mv-app="FlashcardStudyApp" mv-storage="local" mv-autosave="3"
+      mv-plugins="locale-ru" mv-init="example.json">
     <header>
-        <h1>Flashcard Study</h1>
+        <h1>[phrase("app-name", appLanguage)]</h1>
+
+        <aside property="settings">
+            <meta property="appLanguage" content="en">
+
+            <meta property="specialCharacters" content="àâäçèéêëîïôùûüœ">
+
+            <section class="app-lang">
+                <button mv-action="set(appLanguage, en)" title="Translate into English">🇺🇸</button>
+                <button mv-action="set(appLanguage, ru)" title="Перевести на русский">🇷🇺</button>
+            </section>
+        </aside>
     </header>
 
-    <main mv-app="FlashcardStudyApp" mv-storage="local" mv-autosave="3">
-
-        <meta property="specialCharacters" content="à â ä ç è é ê ë î ï ô ù û ü œ" mv-storage="none">
-
-        <button title="Add flashcard" class="mv-add-flashcard">
-            <i class="fa fa-plus"></i>Add Flashcard
+    <main>
+        <button title="[phrase('add-item', group(name: phrase('item-name', appLanguage)), appLanguage)]" class="mv-add-flashcard">
+            <i class="fa fa-plus"></i>[phrase("add-item", group(name: phrase("item-name", appLanguage)), appLanguage)]
         </button>
 
         <section>
             <article property="flashcard" mv-multiple mv-initial-items="0" mv-mode="edit">
 
-                <meta property="mode" mv-default="edit">
-                <meta property="translationVisible" mv-default="false">
+                <meta property="mode" content="edit" mv-default="edit">
+                <meta property="translationVisible" content="false" mv-default="false">
 
-                <aside title="Rank">
+                <aside title="[phrase('rank-hint', appLanguage)]">
                     <input type="number" min="0" mv-if="mode = edit" property="rank" mv-default="0">
                     <span mv-if="mode = read">[rank]</span>
                 </aside>
 
-                <h2>Word, phrase, or sentence</h2>
+                <h2>[phrase("source-header", appLanguage)]</h2>
                 <textarea property="source" mv-if="mode = edit"></textarea>
 
                 <details mv-if="mode = edit">
-                    <summary>Special Characters</summary>
-                    <span property="character4source" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
-                          mv-action="set(source, source & character4source)" mv-mode="read" title="[character4source]" tabindex="0"></span>
+                    <summary>
+                        [phrase("special-characters-header", appLanguage)]
+                    </summary>
+
+                    <button class="btn-customize" mv-action="set(canCustomizeCharacters, true), event.stopPropagation()"
+                            mv-if="!canCustomizeCharacters"
+                            title="[phrase('customize-button-hint', appLanguage)]">
+                        <i class="fa fa-cog"></i>
+                    </button>
+
+                    <meta property="canCustomizeCharacters" content="false" mv-storage="none">
+
+                    <!-- Can't use mv-if: the expression doesn't evaluate automatically (for 'display: none;' elements) -->
+                    <span property="character4source" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters, '')"
+                          mv-action="set(source, source & character4source)"
+                          style="[if(canCustomizeCharacters, 'position: absolute; visibility: hidden;', 'position: relative; visibility: initial;')]"
+                          mv-mode="read" title="[character4source]" tabindex="0"></span>
+
+                    <section class="add-character" mv-if="canCustomizeCharacters">
+                        <label>
+                            [phrase("input-character-label", appLanguage)]:
+                            <input property="inputCharacter" mv-storage="none" type="text" maxlength="1">
+                        </label>
+                        <button mv-action="set(specialCharacters, specialCharacters & lowercase(inputCharacter)), set(inputCharacter, '')"
+                                disabled="[len(inputCharacter) = 0]">
+                            [phrase("add-button-text", appLanguage)]
+                        </button>
+                    </section>
+
+                    <section class="special-characters" mv-if="canCustomizeCharacters">
+                        <span property="character" mv-multiple mv-value="split(specialCharacters, '')"
+                              mv-action="set(specialCharacters, replace(specialCharacters, character, ''))"
+                              mv-mode="read" title="[phrase('delete-character-hint', appLanguage)]" tabindex="0"></span>
+                    </section>
+
+                    <button mv-action="set(canCustomizeCharacters, false)" mv-if="canCustomizeCharacters">[phrase("done-button-text", appLanguage)]</button>
                 </details>
 
                 <p mv-if="mode = read" mv-action="set(mode, edit)">
@@ -62,72 +104,140 @@
                 <button mv-if="mode = read and !translationVisible"
                         mv-action="set(translationVisible, true)"
                         class="show-translation">
-                    <i class="fa fa-eye"></i>Show Translation
+                    <i class="fa fa-eye"></i>[phrase("show-translation-header", appLanguage)]
                 </button>
 
-                <h2 mv-if="mode = edit or translationVisible">Translation</h2>
+                <h2 mv-if="mode = edit or translationVisible">[phrase("translation-header", appLanguage)]</h2>
                 <textarea property="translation" mv-if="mode = edit" lang="fr"></textarea>
 
                 <p mv-if="mode = read and translationVisible" mv-action="set(mode, edit)">
                     [translation]
                 </p>
 
-                <h2 mv-if="mode = edit or (translationVisible and len(example) > 0)">Example</h2>
+                <h2 mv-if="mode = edit or (translationVisible and len(example) > 0)">[phrase("example-header", appLanguage)]</h2>
                 <textarea property="example" mv-if="mode = edit" lang="fr"></textarea>
 
                 <p mv-if="mode = read and translationVisible and len(example) > 0" mv-action="set(mode, edit)">
                     [example]
                 </p>
 
-                <details mv-if="mode = edit">
-                    <summary>Special Characters</summary>
-                    <span property="character4example" mv-multiple mv-value="split(uppercase(specialCharacters) & ' ' & specialCharacters)"
+                <details mv-if="mode = edit and len(specialCharacters) > 0">
+                    <summary>[phrase("special-characters-header", appLanguage)]</summary>
+                    <span property="character4example" mv-multiple mv-value="split(uppercase(specialCharacters) & specialCharacters, '')"
                           mv-action="set(example, example & character4example)" mv-mode="read" title="[character4example]" tabindex="0"></span>
                 </details>
 
                 <button mv-if="mode = edit"
-                        mv-action="set(mode, read), set(translationVisible, false)"
+                        mv-action="set(mode, read), set(translationVisible, false), set(canCustomizeCharacters, false)"
                         disabled="[len(source) = 0 or len(translation) = 0 or len(rank) = 0]">
-                    Save
+                    [phrase("save-button-text", appLanguage)]
                 </button>
 
                 <section mv-if="mode = read and translationVisible">
                     <button mv-action="set(rank, 0), set(translationVisible, false), move(flashcard, 0)">
-                        Bad
+                        [phrase("bad-button-text", appLanguage)]
                     </button>
                     <button mv-action="set(rank, rank + 1), set(translationVisible, false)">
-                        Good
+                        [phrase("good-button-text", appLanguage)]
                     </button>
                     <button mv-action="set(rank, rank + 2), set(translationVisible, false), move(flashcard, count($all))">
-                        Great
+                        [phrase("great-button-text", appLanguage)]
                     </button>
                 </section>
-
             </article>
         </section>
 
         <section class="mv-bar" mv-bar="import export">
-            <button class="mv-import" title="Load flashcards from file">
-                <i class="fa fa-upload"></i>Import
+            <button class="mv-import" title="[phrase('import-button-hint', appLanguage)]">
+                <i class="fa fa-upload [if(appLanguage = ru, hide)]"></i>[phrase("import-button-text", appLanguage)]
             </button>
-            <button mv-if="count(flashcard) > 0" class="mv-export" title="Save flashcards to file">
-                <i class="fa fa-download"></i>Export
+            <button mv-if="count(flashcard) > 0" class="mv-export" title="[phrase('export-button-hint', appLanguage)]">
+                <i class="fa fa-download [if(appLanguage = ru, hide)]"></i>[phrase("export-button-text", appLanguage)]
             </button>
-            <button mv-if="count(flashcard) > 0" mv-action="delete(flashcard where len(source) > 0)" title="Delete all flashcards">
-                <i class="fa fa-trash"></i>Reset
+            <button mv-if="count(flashcard) > 0" mv-action="delete(flashcard where len(source) > 0)" title="[phrase('reset-button-hint', appLanguage)]">
+                <i class="fa fa-trash [if(appLanguage = ru, hide)]"></i>[phrase("reset-button-text", appLanguage)]
             </button>
         </section>
     </main>
 
     <footer>
-        <p>
+        <p mv-if="appLanguage = en">
             Inspired by <a href="http://lea.verou.me/" target="_blank">Lea Verou</a>
             and <a href="https://www.knowthen.com/" target="_blank">James Moore</a> and all the hard work
             they do by sharing their experience and knowledge.
             Made with ♥︎ by <a href="https://d12n.me/" target="_blank">Dmitry Sharabin</a>
             using <a href="https://mavo.io/" target="_blank">Mavo</a>.
         </p>
+        <p mv-if="appLanguage = ru">
+            Сделано с ♥︎ <a href="https://d12n.me/" target="_blank">Дмитрием Шарабиным</a>
+            с помощью <a href="https://mavo.io/" target="_blank">Mavo</a>.
+            Приложение является результатом вдохновения от работ двух замечательных профессионалов:
+            <a href="http://lea.verou.me/" target="_blank">Лии Веру</a> и
+            <a href="https://www.knowthen.com/" target="_blank">Джеймса Мура</a>.
+        </p>
     </footer>
+
+    <!-- Localization Phrases -->
+
+    <datalist class="mv-phrases" lang="en">
+        <option value="app-name">Flashcard Study</option>
+        <option value="item-name">Flashcard</option>
+        <!-- Headers -->
+        <option value="source-header">Word, phrase, or sentence</option>
+        <option value="special-characters-header">Special Characters</option>
+        <option value="show-translation-header">Show Translation</option>
+        <option value="translation-header">Translation</option>
+        <option value="example-header">Example</option>
+        <!-- Labels -->
+        <option value="input-character-label">Character</option>
+        <!-- Buttons -->
+        <option value="add-button-text">Add</option>
+        <option value="done-button-text">Done</option>
+        <option value="save-button-text">Save</option>
+        <option value="bad-button-text">Bad</option>
+        <option value="good-button-text">Good</option>
+        <option value="great-button-text">Great</option>
+        <option value="import-button-text">Import</option>
+        <option value="export-button-text">Export</option>
+        <option value="reset-button-text">Reset</option>
+        <!-- Hints -->
+        <option value="customize-button-hint">Customize</option>
+        <option value="delete-character-hint">Delete character</option>
+        <option value="rank-hint">Rank</option>
+        <option value="import-button-hint">Load flashcards from file</option>
+        <option value="export-button-hint">Save flashcards to file</option>
+        <option value="reset-button-hint">Delete all flashcards</option>
+    </datalist>
+
+    <datalist class="mv-phrases" lang="ru">
+        <option value="app-name">Карточки</option>
+        <option value="item-name">карточку</option>
+        <!-- Headers -->
+        <option value="source-header">Слово, фраза или предложение</option>
+        <option value="special-characters-header">Специальные символы</option>
+        <option value="show-translation-header">Показать перевод</option>
+        <option value="translation-header">Перевод</option>
+        <option value="example-header">Пример</option>
+        <!-- Labels -->
+        <option value="input-character-label">Символ</option>
+        <!-- Buttons -->
+        <option value="add-button-text">Добавить</option>
+        <option value="done-button-text">Завершить</option>
+        <option value="save-button-text">Сохранить</option>
+        <option value="bad-button-text">👎</option>
+        <option value="good-button-text">👍</option>
+        <option value="great-button-text">👏</option>
+        <option value="import-button-text">Загрузить</option>
+        <option value="export-button-text">Сохранить</option>
+        <option value="reset-button-text">Удалить</option>
+        <!-- Hints -->
+        <option value="customize-button-hint">Настроить</option>
+        <option value="delete-character-hint">Удалить символ</option>
+        <option value="rank-hint">Рейтинг</option>
+        <option value="import-button-hint">Загрузить карточки из файла</option>
+        <option value="export-button-hint">Сохранить карточки в файл</option>
+        <option value="reset-button-hint">Удалить все карточки</option>
+    </datalist>
 </body>
 
 </html>
